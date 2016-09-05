@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         if let button = menuItem.button {
-            button.image = NSImage(named: "Spotify-32")
+            button.image = NSImage(named: "Spotify@2x")
             button.action = #selector(AppDelegate.helloWorld(_:))
         }
     }
