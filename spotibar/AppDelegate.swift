@@ -12,10 +12,19 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
+    
+    let menuItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+        if let button = menuItem.button {
+            button.image = NSImage(named: "Spotify-32")
+            button.action = #selector(AppDelegate.helloWorld(_:))
+        }
+    }
+    
+    func helloWorld(sender: AnyObject) {
+        print("Hello, world")
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
