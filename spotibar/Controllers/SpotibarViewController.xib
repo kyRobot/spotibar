@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SpotibarViewController" customModule="spotibar" customModuleProvider="target">
+            <connections>
+                <outlet property="albumImg" destination="OEk-XC-nIf" id="Nko-wC-9Z1"/>
+                <outlet property="artistLabel" destination="NYe-rE-RH5" id="heU-gQ-3Uo"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="280"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OEk-XC-nIf">
+                    <rect key="frame" x="0.0" y="30" width="250" height="250"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="OEk-XC-nIf" secondAttribute="height" multiplier="1:1" id="KZz-ve-XgB"/>
+                        <constraint firstAttribute="width" constant="250" id="UeN-j9-gOK"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="VAg-Ym-jeK"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NYe-rE-RH5">
+                    <rect key="frame" x="9" y="5" width="233" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Artist : Track :: Album" id="DZq-gr-FM0">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="OEk-XC-nIf" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="1dh-6r-hkZ"/>
+                <constraint firstItem="OEk-XC-nIf" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="1nC-IV-ugI"/>
+                <constraint firstItem="NYe-rE-RH5" firstAttribute="top" secondItem="OEk-XC-nIf" secondAttribute="bottom" constant="8" id="959-5l-Ehc"/>
+                <constraint firstItem="NYe-rE-RH5" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="11" id="mIF-j0-wor"/>
+                <constraint firstAttribute="trailing" secondItem="NYe-rE-RH5" secondAttribute="trailing" constant="10" id="qg8-Wh-ElS"/>
+            </constraints>
+            <point key="canvasLocation" x="180" y="322"/>
+        </customView>
+    </objects>
+</document>

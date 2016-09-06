@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		096683DA1D7F2CE300EE3FFB /* SpotibarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096683D81D7F2CE300EE3FFB /* SpotibarViewController.swift */; };
+		096683DB1D7F2CE300EE3FFB /* SpotibarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 096683D91D7F2CE300EE3FFB /* SpotibarViewController.xib */; };
 		09D3A4601D7DFBDB00C2E8BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D3A45F1D7DFBDB00C2E8BA /* AppDelegate.swift */; };
 		09D3A4621D7DFBDB00C2E8BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09D3A4611D7DFBDB00C2E8BA /* Assets.xcassets */; };
 		09D3A4651D7DFBDB00C2E8BA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09D3A4631D7DFBDB00C2E8BA /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		096683D81D7F2CE300EE3FFB /* SpotibarViewController.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = SpotibarViewController.swift; sourceTree = "<group>"; };
+		096683D91D7F2CE300EE3FFB /* SpotibarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpotibarViewController.xib; sourceTree = "<group>"; };
 		09D3A45C1D7DFBDB00C2E8BA /* spotibar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotibar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D3A45F1D7DFBDB00C2E8BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09D3A4611D7DFBDB00C2E8BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,6 +35,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		096683DC1D7F2D0C00EE3FFB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				096683D81D7F2CE300EE3FFB /* SpotibarViewController.swift */,
+				096683D91D7F2CE300EE3FFB /* SpotibarViewController.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		09D3A4531D7DFBDB00C2E8BA = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				09D3A45F1D7DFBDB00C2E8BA /* AppDelegate.swift */,
+				096683DC1D7F2D0C00EE3FFB /* Controllers */,
 				09D3A4611D7DFBDB00C2E8BA /* Assets.xcassets */,
 				09D3A4631D7DFBDB00C2E8BA /* MainMenu.xib */,
 				09D3A4661D7DFBDB00C2E8BA /* Info.plist */,
@@ -118,6 +132,7 @@
 			files = (
 				09D3A4621D7DFBDB00C2E8BA /* Assets.xcassets in Resources */,
 				09D3A4651D7DFBDB00C2E8BA /* MainMenu.xib in Resources */,
+				096683DB1D7F2CE300EE3FFB /* SpotibarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096683DA1D7F2CE300EE3FFB /* SpotibarViewController.swift in Sources */,
 				09D3A4601D7DFBDB00C2E8BA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +287,7 @@
 				09D3A46B1D7DFBDB00C2E8BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
