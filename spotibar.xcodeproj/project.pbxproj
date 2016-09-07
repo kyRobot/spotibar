@@ -10,6 +10,7 @@
 		096683DA1D7F2CE300EE3FFB /* SpotibarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096683D81D7F2CE300EE3FFB /* SpotibarViewController.swift */; };
 		096683DB1D7F2CE300EE3FFB /* SpotibarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 096683D91D7F2CE300EE3FFB /* SpotibarViewController.xib */; };
 		096683DF1D80095000EE3FFB /* ClickObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096683DE1D80095000EE3FFB /* ClickObserver.swift */; };
+		096683E11D809A6B00EE3FFB /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096683E01D809A6B00EE3FFB /* StatusItemController.swift */; };
 		09D3A4601D7DFBDB00C2E8BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D3A45F1D7DFBDB00C2E8BA /* AppDelegate.swift */; };
 		09D3A4621D7DFBDB00C2E8BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09D3A4611D7DFBDB00C2E8BA /* Assets.xcassets */; };
 		09D3A4651D7DFBDB00C2E8BA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09D3A4631D7DFBDB00C2E8BA /* MainMenu.xib */; };
@@ -19,6 +20,7 @@
 		096683D81D7F2CE300EE3FFB /* SpotibarViewController.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = SpotibarViewController.swift; sourceTree = "<group>"; };
 		096683D91D7F2CE300EE3FFB /* SpotibarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpotibarViewController.xib; sourceTree = "<group>"; };
 		096683DE1D80095000EE3FFB /* ClickObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickObserver.swift; sourceTree = "<group>"; };
+		096683E01D809A6B00EE3FFB /* StatusItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		09D3A45C1D7DFBDB00C2E8BA /* spotibar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotibar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D3A45F1D7DFBDB00C2E8BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09D3A4611D7DFBDB00C2E8BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 			children = (
 				096683D81D7F2CE300EE3FFB /* SpotibarViewController.swift */,
 				096683D91D7F2CE300EE3FFB /* SpotibarViewController.xib */,
+				096683E01D809A6B00EE3FFB /* StatusItemController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096683E11D809A6B00EE3FFB /* StatusItemController.swift in Sources */,
 				096683DA1D7F2CE300EE3FFB /* SpotibarViewController.swift in Sources */,
 				096683DF1D80095000EE3FFB /* ClickObserver.swift in Sources */,
 				09D3A4601D7DFBDB00C2E8BA /* AppDelegate.swift in Sources */,

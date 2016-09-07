@@ -8,7 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SpotibarViewController" customModule="spotibar" customModuleProvider="target">
             <connections>
-                <outlet property="albumImg" destination="OEk-XC-nIf" id="Nko-wC-9Z1"/>
+                <outlet property="albumImg" destination="OEk-XC-nIf" id="ow6-7o-o28"/>
                 <outlet property="artistLabel" destination="NYe-rE-RH5" id="heU-gQ-3Uo"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
