@@ -11,8 +11,10 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    
     let menuItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     let popover = NSPopover()
+    private var clickObserver: ClickObserver?
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -24,19 +26,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         popover.contentViewController = SpotibarViewController(nibName: "SpotibarViewController", bundle: nil)
-        popover.behavior = NSPopoverBehavior.Transient
+        
+        clickObserver = ClickObserver() { [unowned self] event in
+            print("click")
+            if self.popover.shown {
+                self.closePopover(event)
+            }
+        }
+        clickObserver?.observe()
     }
     
     func togglePopover(sender: AnyObject?) {
         
         if popover.shown {
-            popover.performClose(sender)
+            self.closePopover(sender)
         } else {
             if let button = menuItem.button {
                 popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
             }
+            clickObserver?.observe()
         }
-        
+    }
+    
+    func closePopover(sender: AnyObject?) {
+        popover.performClose(sender)
+        clickObserver?.ignore()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
