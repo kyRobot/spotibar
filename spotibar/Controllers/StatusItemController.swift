@@ -20,13 +20,21 @@ class StatusItemController: NSObject {
         setupPopover()
     }
 
+    func update(state: String) {
+        if state == SpotifyConstants.PlayerStates.Playing {
+            newButtonTitle(state)
+        }
+        else {
+            newButtonTitle(nil)
+        }
+    }
+
     private func setupButton() {
         if let button = menuItem.button {
             button.image = NSImage(named: "Spotify@2x")
             button.target = self
             button.imagePosition = NSCellImagePosition.ImageLeft
             button.action = #selector(StatusItemController.togglePopover(_:))
-            button.title = "Now Playing"
         }
     }
 
@@ -53,6 +61,16 @@ class StatusItemController: NSObject {
     private func closePopover(sender: AnyObject?) {
         popover.performClose(sender)
         clickObserver?.ignore()
+    }
+
+    private func newButtonTitle(title: String?) {
+        if let button = menuItem.button {
+            if let t = title {
+                button.title = t
+            } else {
+                button.title = "";
+            }
+        }
     }
 
 

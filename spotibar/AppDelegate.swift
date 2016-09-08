@@ -14,9 +14,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = StatusItemController()
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        NSDistributedNotificationCenter.defaultCenter()
+            .addObserver(self,
+                         selector: #selector(self.spotifyPlaybackChange(_:)),
+                         name: "com.spotify.client.PlaybackStateChanged",
+                         object: nil)
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
+        NSDistributedNotificationCenter.defaultCenter().removeObserver(self)
+    }
+
+    @objc private func spotifyPlaybackChange(notification: NSNotification) {
+        let payload = notification.userInfo!
+        let playerState: String = payload[SpotifyConstants.NotificationKeys.State] as! String
+        statusItem.update(playerState)
+
     }
 
 
