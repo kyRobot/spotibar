@@ -20,13 +20,14 @@ class StatusItemController: NSObject {
         setupPopover()
     }
 
-    func update(state: String) {
-        if state == SpotifyConstants.PlayerStates.Playing {
-            newButtonTitle(state)
-        }
-        else {
+    func update(track: Track) {
+        switch track.state {
+        case .Playing:
+            newButtonTitle(track.name)
+        default:
             newButtonTitle(nil)
         }
+
     }
 
     private func setupButton() {

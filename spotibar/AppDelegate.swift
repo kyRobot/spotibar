@@ -27,9 +27,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc private func spotifyPlaybackChange(notification: NSNotification) {
         let payload = notification.userInfo!
-        let playerState: String = payload[SpotifyConstants.NotificationKeys.State] as! String
-        statusItem.update(playerState)
 
+        let playerState: SpotifyConstants.PlayerState? =
+            SpotifyConstants.PlayerState(rawValue: payload[SpotifyConstants.NotificationKeys.State] as! String)
+
+        guard let state = playerState else {
+            return
+            // Error State i.e Player Error is Unknown. Notifications may have changed
+        }
+
+        let track = Track(state: state)
+        track.id = extract(SpotifyConstants.NotificationKeys.ID, map: payload)
+        track.name = extract(SpotifyConstants.NotificationKeys.Name, map: payload)
+        track.artist = extract(SpotifyConstants.NotificationKeys.Artist, map: payload)
+        statusItem.update(track)
+    }
+
+    private func extract(key: String, map: [NSObject: AnyObject]) -> String? {
+        return map[key] as! String?
     }
 
 

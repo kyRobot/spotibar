@@ -11,10 +11,13 @@ import Foundation
 struct SpotifyConstants {
     struct NotificationKeys {
         static let State = "Player State"
+        static let ID = "Track ID"
+        static let Album = "Album"
+        static let Name = "Name"
+        static let Artist = "Album Artist"
     }
 
-    struct PlayerStates {
-        static let Playing = "Playing"
-        static let Paused = "Paused"
+    enum PlayerState : String {
+        case Playing, Paused, Stopped
     }
 }
