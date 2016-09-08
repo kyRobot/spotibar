@@ -15,9 +15,12 @@ class StatusItemController: NSObject {
     private var clickObserver: ClickObserver?
     
     override init() {
-        
         super.init()
-        
+        setupButton()
+        setupPopover()
+    }
+
+    private func setupButton() {
         if let button = menuItem.button {
             button.image = NSImage(named: "Spotify@2x")
             button.target = self
@@ -25,18 +28,18 @@ class StatusItemController: NSObject {
             button.action = #selector(StatusItemController.togglePopover(_:))
             button.title = "Now Playing"
         }
-        
+    }
+
+    private func setupPopover() {
         popover.contentViewController = SpotibarViewController(nibName: "SpotibarViewController", bundle: nil)
-        
         clickObserver = ClickObserver() { [unowned self] event in
             if self.popover.shown {
                 self.closePopover(event)
             }
         }
-        clickObserver?.observe()
     }
     
-    func togglePopover(sender: AnyObject?) {
+    @objc private func togglePopover(sender: AnyObject?) {
         if popover.shown {
             self.closePopover(sender)
         } else {
@@ -47,7 +50,7 @@ class StatusItemController: NSObject {
         }
     }
     
-    func closePopover(sender: AnyObject?) {
+    private func closePopover(sender: AnyObject?) {
         popover.performClose(sender)
         clickObserver?.ignore()
     }
