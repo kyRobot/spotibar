@@ -36,7 +36,7 @@ class SpotibarViewController: NSViewController {
     }
 
     private func refreshView() {
-        // no track, quick return
+        // no track, or view not loaded yet. quick return
         guard let track = track,
                 name = trackNameLabel,
                 artist = artistLabel,
@@ -47,12 +47,11 @@ class SpotibarViewController: NSViewController {
 
         // no track info, clean up
         if track.state == SpotifyConstants.PlayerState.Stopped ||
-            track.state == SpotifyConstants.PlayerState.Paused{
-            clear()
+            track.state == SpotifyConstants.PlayerState.Paused {
+            reset()
             return
         }
 
-        // no change, do nothing
         if track.id == displayedTrack {
             return
         }
@@ -70,20 +69,15 @@ class SpotibarViewController: NSViewController {
 
         if let newAlbum = track.album {
             if newAlbum != displayedAlbum {
-                let safe = newAlbum.stringByReplacingOccurrencesOfString(" ", withString: "+")
-                art.image = NSURL(string: "https://placehold.it/250x250?text=\(safe)")
-                    .flatMap { NSData(contentsOfURL: $0) }
-                    .flatMap { NSImage(data: $0) }
+                art.image = track.art
             }
         }
 
         displayedTrack = track.id
         displayedAlbum = track.album
-
-
     }
 
-    private func clear() {
+    private func reset() {
         albumImg.image = nil
         artistLabel.stringValue = ""
         trackNameLabel.stringValue = ""
