@@ -12,6 +12,7 @@ class StatusItemController: NSObject {
     
     let menuItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     let popover = NSPopover()
+    let popoverViewController = SpotibarViewController(nibName: "SpotibarViewController", bundle: nil)
     private var clickObserver: ClickObserver?
     
     override init() {
@@ -27,6 +28,7 @@ class StatusItemController: NSObject {
         default:
             newButtonTitle(nil)
         }
+        popoverViewController?.updateFromSpotify(track)
 
     }
 
@@ -40,7 +42,7 @@ class StatusItemController: NSObject {
     }
 
     private func setupPopover() {
-        popover.contentViewController = SpotibarViewController(nibName: "SpotibarViewController", bundle: nil)
+        popover.contentViewController = popoverViewController
         clickObserver = ClickObserver() { [unowned self] event in
             if self.popover.shown {
                 self.closePopover(event)
@@ -66,8 +68,8 @@ class StatusItemController: NSObject {
 
     private func newButtonTitle(title: String?) {
         if let button = menuItem.button {
-            if let t = title {
-                button.title = t
+            if let newTitle = title {
+                button.title = newTitle
             } else {
                 button.title = "";
             }

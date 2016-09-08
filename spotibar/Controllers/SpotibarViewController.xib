@@ -3,47 +3,64 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SpotibarViewController" customModule="spotibar" customModuleProvider="target">
             <connections>
                 <outlet property="albumImg" destination="OEk-XC-nIf" id="ow6-7o-o28"/>
                 <outlet property="artistLabel" destination="NYe-rE-RH5" id="heU-gQ-3Uo"/>
+                <outlet property="trackNameLabel" destination="Zrz-zG-tZd" id="8Fs-qF-Fbk"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="250" height="280"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+        <customView autoresizesSubviews="NO" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="304"/>
+            <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OEk-XC-nIf">
-                    <rect key="frame" x="0.0" y="30" width="250" height="250"/>
+                    <rect key="frame" x="0.0" y="54" width="250" height="250"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="OEk-XC-nIf" secondAttribute="height" multiplier="1:1" id="KZz-ve-XgB"/>
-                        <constraint firstAttribute="width" constant="250" id="UeN-j9-gOK"/>
+                        <constraint firstAttribute="height" constant="250" id="z9n-bZ-Xk2"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="VAg-Ym-jeK"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NYe-rE-RH5">
-                    <rect key="frame" x="9" y="5" width="233" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Artist : Track :: Album" id="DZq-gr-FM0">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NYe-rE-RH5">
+                    <rect key="frame" x="9" y="10" width="233" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="229" id="UzJ-aJ-Jl3"/>
+                    </constraints>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Artist" id="DZq-gr-FM0">
                         <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zrz-zG-tZd" userLabel="Track Label">
+                    <rect key="frame" x="9" y="5" width="233" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="b0F-0F-k0R"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Track Name" id="wCo-fc-EI9">
+                        <font key="font" metaFont="system" size="16"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="OEk-XC-nIf" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="1dh-6r-hkZ"/>
-                <constraint firstItem="OEk-XC-nIf" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="1nC-IV-ugI"/>
-                <constraint firstItem="NYe-rE-RH5" firstAttribute="top" secondItem="OEk-XC-nIf" secondAttribute="bottom" constant="8" id="959-5l-Ehc"/>
-                <constraint firstItem="NYe-rE-RH5" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="11" id="mIF-j0-wor"/>
-                <constraint firstAttribute="trailing" secondItem="NYe-rE-RH5" secondAttribute="trailing" constant="10" id="qg8-Wh-ElS"/>
+                <constraint firstAttribute="bottom" secondItem="NYe-rE-RH5" secondAttribute="bottom" constant="10" id="6la-pE-i8e"/>
+                <constraint firstItem="NYe-rE-RH5" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="11" id="Bkn-32-hT1"/>
+                <constraint firstItem="NYe-rE-RH5" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="HGg-Wk-cvh"/>
+                <constraint firstItem="Zrz-zG-tZd" firstAttribute="trailing" secondItem="NYe-rE-RH5" secondAttribute="trailing" id="I87-Tx-Ak6"/>
+                <constraint firstItem="Zrz-zG-tZd" firstAttribute="centerX" secondItem="OEk-XC-nIf" secondAttribute="centerX" id="JXm-uX-hsL"/>
+                <constraint firstItem="OEk-XC-nIf" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ZIL-MW-oih"/>
+                <constraint firstItem="Zrz-zG-tZd" firstAttribute="top" secondItem="OEk-XC-nIf" secondAttribute="bottom" constant="8" symbolic="YES" id="fmL-kL-aaO"/>
+                <constraint firstItem="Zrz-zG-tZd" firstAttribute="leading" secondItem="NYe-rE-RH5" secondAttribute="leading" id="jfb-W4-blA"/>
+                <constraint firstItem="OEk-XC-nIf" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="wXs-MG-WP7"/>
             </constraints>
-            <point key="canvasLocation" x="180" y="322"/>
+            <point key="canvasLocation" x="180" y="334"/>
         </customView>
     </objects>
 </document>

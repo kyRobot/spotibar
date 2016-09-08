@@ -33,13 +33,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         guard let state = playerState else {
             return
-            // Error State i.e Player Error is Unknown. Notifications may have changed
+            // Error State i.e Player Error is Unknown. Notification Structure may have changed
         }
 
         let track = Track(state: state)
         track.id = extract(SpotifyConstants.NotificationKeys.ID, map: payload)
         track.name = extract(SpotifyConstants.NotificationKeys.Name, map: payload)
         track.artist = extract(SpotifyConstants.NotificationKeys.Artist, map: payload)
+        track.album = extract(SpotifyConstants.NotificationKeys.Album, map: payload)
         statusItem.update(track)
     }
 
