@@ -8,15 +8,15 @@
 
 import Cocoa
 
-class SpotibarViewController: NSViewController {
+class SpotibarViewController: NSViewController, NSPopoverDelegate {
 
     @IBOutlet var trackNameLabel: NSTextField!
     @IBOutlet var artistLabel:  NSTextField!
     @IBOutlet var albumImg: NSImageView!
 
     var track: Track?
-    var displayedTrack: String?
     var displayedAlbum: String?
+    var getArt: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +24,17 @@ class SpotibarViewController: NSViewController {
         artistLabel.cell?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         trackNameLabel.cell?.wraps = true
         trackNameLabel.cell?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        albumImg.imageScaling = NSImageScaling.ScaleProportionallyUpOrDown
     }
-    
+
+    func popoverWillShow(notification: NSNotification) {
+        getArt = true
+    }
+
+    func popoverDidClose(notification: NSNotification) {
+        getArt = false
+    }
+
     override func viewWillAppear() {
         refreshView()
     }
@@ -52,10 +61,6 @@ class SpotibarViewController: NSViewController {
             return
         }
 
-        if track.id == displayedTrack {
-            return
-        }
-
         // Do Updates
 
         if let newName = track.name {
@@ -67,14 +72,13 @@ class SpotibarViewController: NSViewController {
             artist.stringValue = newArtist
         }
 
+        // art is external and 2 web calls, do it judiciously
         if let newAlbum = track.album {
-            if newAlbum != displayedAlbum {
+            if newAlbum != displayedAlbum && getArt {
                 art.image = track.art
+                displayedAlbum = track.album
             }
         }
-
-        displayedTrack = track.id
-        displayedAlbum = track.album
     }
 
     private func reset() {
@@ -84,7 +88,6 @@ class SpotibarViewController: NSViewController {
         trackNameLabel.toolTip = nil
         track = nil
         displayedAlbum = nil
-        displayedTrack = nil
     }
     
 }

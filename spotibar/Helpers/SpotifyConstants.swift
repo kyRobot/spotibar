@@ -20,4 +20,21 @@ struct SpotifyConstants {
     enum PlayerState : String {
         case Playing, Paused, Stopped
     }
+
+    struct WebAPI {
+        
+        struct Tracks {
+            let url: String!
+
+            init(track: String) {
+                url = "https://api.spotify.com/v1/tracks/\(track.componentsSeparatedByString(":")[2])"
+            }
+
+            func asURL() -> NSURL? {
+                return NSURL(string: url)
+            }
+        }
+
+
+    }
 }

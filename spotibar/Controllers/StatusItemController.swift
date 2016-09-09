@@ -43,6 +43,7 @@ class StatusItemController: NSObject {
 
     private func setupPopover() {
         popover.contentViewController = popoverViewController
+        popover.delegate = popoverViewController
         clickObserver = ClickObserver() { [unowned self] event in
             if self.popover.shown {
                 self.closePopover(event)
