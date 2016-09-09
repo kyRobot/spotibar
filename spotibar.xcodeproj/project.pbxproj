@@ -25,6 +25,7 @@
 		096683E01D809A6B00EE3FFB /* StatusItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		096683E21D817DC100EE3FFB /* SpotifyConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyConstants.swift; sourceTree = "<group>"; };
 		096683E51D81C01500EE3FFB /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		098EA8201D8310BC006B0DC3 /* spotibar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = spotibar.entitlements; sourceTree = "<group>"; };
 		09D3A45C1D7DFBDB00C2E8BA /* spotibar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotibar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D3A45F1D7DFBDB00C2E8BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09D3A4611D7DFBDB00C2E8BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		09D3A45E1D7DFBDB00C2E8BA /* spotibar */ = {
 			isa = PBXGroup;
 			children = (
+				098EA8201D8310BC006B0DC3 /* spotibar.entitlements */,
 				096683E41D81BE6800EE3FFB /* Model */,
 				096683DD1D8008F400EE3FFB /* Helpers */,
 				09D3A45F1D7DFBDB00C2E8BA /* AppDelegate.swift */,
@@ -132,6 +134,15 @@
 				TargetAttributes = {
 					09D3A45B1D7DFBDB00C2E8BA = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = LET2F8G87E;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 0;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -280,9 +291,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = spotibar/spotibar.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = spotibar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyrobot.spotibar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -292,9 +305,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = spotibar/spotibar.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = spotibar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyrobot.spotibar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
