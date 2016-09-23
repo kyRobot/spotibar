@@ -9,12 +9,12 @@
 import Foundation
 import Cocoa
 
-public class ClickObserver {
-    private var monitor: AnyObject?
-    private let mask: NSEventMask = [NSEventMask.LeftMouseDownMask, NSEventMask.RightMouseDownMask]
-    private let action: NSEvent? -> ()
+open class ClickObserver {
+    fileprivate var monitor: AnyObject?
+    fileprivate let mask: NSEventMask = [NSEventMask.leftMouseDown, NSEventMask.rightMouseDown]
+    fileprivate let action: (NSEvent?) -> ()
     
-    public init(action: NSEvent? -> ()) {
+    public init(action: @escaping (NSEvent?) -> ()) {
         self.action = action
     }
     
@@ -22,11 +22,11 @@ public class ClickObserver {
         ignore()
     }
     
-    public func observe() {
-        monitor = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handler: action)
+    open func observe() {
+        monitor = NSEvent.addGlobalMonitorForEvents(matching: mask, handler: action) as AnyObject?
     }
     
-    public func ignore() {
+    open func ignore() {
         if monitor != nil {
             NSEvent.removeMonitor(monitor!)
             monitor = nil

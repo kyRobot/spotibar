@@ -10,10 +10,10 @@ import Cocoa
 
 class StatusItemController: NSObject {
     
-    let menuItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
+    let menuItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     let popover = NSPopover()
     let popoverViewController = SpotibarViewController(nibName: "SpotibarUI2", bundle: nil)
-    private var clickObserver: ClickObserver?
+    fileprivate var clickObserver: ClickObserver?
     
     override init() {
         super.init()
@@ -23,51 +23,51 @@ class StatusItemController: NSObject {
 
     func update(track: Track) {
         switch track.state {
-        case .Playing:
-            newButtonTitle(track.name)
+        case .playing:
+            newButtonTitle(title: track.name)
         default:
-            newButtonTitle(nil)
+            newButtonTitle(title: nil)
         }
-        popoverViewController?.updateFromSpotify(track)
+        popoverViewController?.updateFromSpotify(track: track)
 
     }
 
-    private func setupButton() {
+    fileprivate func setupButton() {
         if let button = menuItem.button {
             button.image = NSImage(named: "Spotify@2x")
             button.target = self
-            button.imagePosition = NSCellImagePosition.ImageRight
-            button.action = #selector(StatusItemController.togglePopover(_:))
+            button.imagePosition = NSCellImagePosition.imageRight
+            button.action = #selector(StatusItemController.togglePopover(sender:))
         }
     }
 
-    private func setupPopover() {
+    fileprivate func setupPopover() {
         popover.contentViewController = popoverViewController
         popover.delegate = popoverViewController
         clickObserver = ClickObserver() { [unowned self] event in
-            if self.popover.shown {
-                self.closePopover(event)
+            if self.popover.isShown {
+                self.closePopover(sender: event)
             }
         }
     }
     
-    @objc private func togglePopover(sender: AnyObject?) {
-        if popover.shown {
-            self.closePopover(sender)
+    @objc fileprivate func togglePopover(sender: AnyObject?) {
+        if popover.isShown {
+            self.closePopover(sender: sender)
         } else {
             if let button = menuItem.button {
-                popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
+                popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             }
             clickObserver?.observe()
         }
     }
     
-    private func closePopover(sender: AnyObject?) {
+    fileprivate func closePopover(sender: AnyObject?) {
         popover.performClose(sender)
         clickObserver?.ignore()
     }
 
-    private func newButtonTitle(title: String?) {
+    fileprivate func newButtonTitle(title: String?) {
         if let button = menuItem.button {
             if let newTitle = title {
                 button.title = newTitle

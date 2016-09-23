@@ -24,14 +24,14 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
 //        artistLabel.cell?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
 //        trackNameLabel.cell?.wraps = true
 //        trackNameLabel.cell?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-        albumImg.imageScaling = NSImageScaling.ScaleProportionallyUpOrDown
+        albumImg.imageScaling = NSImageScaling.scaleProportionallyUpOrDown
     }
 
-    func popoverWillShow(notification: NSNotification) {
+    func popoverWillShow(_ notification: Notification) {
         getArt = true
     }
 
-    func popoverDidClose(notification: NSNotification) {
+    func popoverDidClose(_ notification: Notification) {
         getArt = false
     }
 
@@ -44,19 +44,19 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
         refreshView()
     }
 
-    private func refreshView() {
+    fileprivate func refreshView() {
         // no track, or view not loaded yet. quick return
         guard let track = currentTrack,
-                name = trackNameLabel,
-                artist = artistLabel,
-                art = albumImg
+                let name = trackNameLabel,
+                let artist = artistLabel,
+                let art = albumImg
         else {
             return
         }
 
         // no track info, clean up
-        if track.state == SpotifyConstants.PlayerState.Stopped ||
-            track.state == SpotifyConstants.PlayerState.Paused {
+        if track.state == SpotifyConstants.PlayerState.stopped ||
+            track.state == SpotifyConstants.PlayerState.paused {
             reset()
             return
         }
@@ -81,7 +81,7 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
         }
     }
 
-    private func reset() {
+    fileprivate func reset() {
         albumImg.image = nil
         artistLabel.stringValue = ""
         trackNameLabel.stringValue = ""

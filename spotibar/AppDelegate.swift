@@ -13,21 +13,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let statusItem = StatusItemController()
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
-        NSDistributedNotificationCenter.defaultCenter()
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        DistributedNotificationCenter.default()
             .addObserver(self,
-                         selector: #selector(self.spotifyPlaybackChange(_:)),
-                         name: "com.spotify.client.PlaybackStateChanged",
+                         selector: #selector(self.spotifyPlaybackChanged(notification:)),
+                         name: NSNotification.Name(rawValue: "com.spotify.client.PlaybackStateChanged"),
                          object: nil)
     }
     
-    func applicationWillTerminate(aNotification: NSNotification) {
-        NSDistributedNotificationCenter.defaultCenter().removeObserver(self)
+    func applicationWillTerminate(_ aNotification: Notification) {
+        DistributedNotificationCenter.default().removeObserver(self)
     }
 
-    @objc private func spotifyPlaybackChange(notification: NSNotification) {
+    @objc fileprivate func spotifyPlaybackChanged(notification: Notification) {
         let payload = notification.userInfo!
-
         let playerState: SpotifyConstants.PlayerState? =
             SpotifyConstants.PlayerState(rawValue: payload[SpotifyConstants.NotificationKeys.State] as! String)
 
@@ -37,14 +36,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         let track = Track(state: state)
-        track.id = extract(SpotifyConstants.NotificationKeys.ID, map: payload)
-        track.name = extract(SpotifyConstants.NotificationKeys.Name, map: payload)
-        track.artist = extract(SpotifyConstants.NotificationKeys.Artist, map: payload)
-        track.album = extract(SpotifyConstants.NotificationKeys.Album, map: payload)
-        statusItem.update(track)
+        track.id = extract(key: SpotifyConstants.NotificationKeys.ID, map: payload)
+        track.name = extract(key: SpotifyConstants.NotificationKeys.Name, map: payload)
+        track.artist = extract(key: SpotifyConstants.NotificationKeys.Artist, map: payload)
+        track.album = extract(key: SpotifyConstants.NotificationKeys.Album, map: payload)
+        statusItem.update(track: track)
+
     }
 
-    private func extract(key: String, map: [NSObject: AnyObject]) -> String? {
+    fileprivate func extract(key: String, map: [AnyHashable: Any]) -> String? {
         return map[key] as! String?
     }
 
