@@ -12,7 +12,7 @@ class StatusItemController: NSObject {
     
     let menuItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     let popover = NSPopover()
-    let popoverViewController = SpotibarViewController(nibName: "SpotibarViewController", bundle: nil)
+    let popoverViewController = SpotibarViewController(nibName: "SpotibarUI2", bundle: nil)
     private var clickObserver: ClickObserver?
     
     override init() {
@@ -36,7 +36,7 @@ class StatusItemController: NSObject {
         if let button = menuItem.button {
             button.image = NSImage(named: "Spotify@2x")
             button.target = self
-            button.imagePosition = NSCellImagePosition.ImageLeft
+            button.imagePosition = NSCellImagePosition.ImageRight
             button.action = #selector(StatusItemController.togglePopover(_:))
         }
     }

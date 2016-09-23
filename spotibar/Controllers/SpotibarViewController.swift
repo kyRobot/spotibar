@@ -14,16 +14,16 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
     @IBOutlet var artistLabel:  NSTextField!
     @IBOutlet var albumImg: NSImageView!
 
-    var track: Track?
+    var currentTrack: Track?
     var displayedAlbum: String?
     var getArt: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        artistLabel.cell?.wraps = true
-        artistLabel.cell?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-        trackNameLabel.cell?.wraps = true
-        trackNameLabel.cell?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+//        artistLabel.cell?.wraps = true
+//        artistLabel.cell?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+//        trackNameLabel.cell?.wraps = true
+//        trackNameLabel.cell?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         albumImg.imageScaling = NSImageScaling.ScaleProportionallyUpOrDown
     }
 
@@ -40,13 +40,13 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
     }
 
     func updateFromSpotify (track: Track) {
-        self.track = track
+        self.currentTrack = track
         refreshView()
     }
 
     private func refreshView() {
         // no track, or view not loaded yet. quick return
-        guard let track = track,
+        guard let track = currentTrack,
                 name = trackNameLabel,
                 artist = artistLabel,
                 art = albumImg
@@ -72,7 +72,7 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
             artist.stringValue = newArtist
         }
 
-        // art is external and 2 web calls, do it judiciously
+        // art is external and 2 web calls, get it judiciously
         if let newAlbum = track.album {
             if newAlbum != displayedAlbum && getArt {
                 art.image = track.art
@@ -86,7 +86,7 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
         artistLabel.stringValue = ""
         trackNameLabel.stringValue = ""
         trackNameLabel.toolTip = nil
-        track = nil
+        currentTrack = nil
         displayedAlbum = nil
     }
     

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SpotibarViewController" customModule="spotibar" customModuleProvider="target">
+            <connections>
+                <outlet property="albumImg" destination="Ifk-iu-g9U" id="a12-Pk-d1w"/>
+                <outlet property="artistLabel" destination="GNj-gh-Knj" id="gzk-BH-k3a"/>
+                <outlet property="trackNameLabel" destination="25u-yb-Deg" id="dg7-tc-5uf"/>
+                <outlet property="view" destination="6Cr-t5-W01" id="Qi1-a5-RAD"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <viewController nibName="SpotibarUI2" id="F6s-nB-T5l" userLabel="Popover View Controller" customClass="SpotibarViewController" customModule="spotibar" customModuleProvider="target">
+            <connections>
+                <outlet property="albumImg" destination="Ifk-iu-g9U" id="Dmc-sm-pmB"/>
+                <outlet property="artistLabel" destination="GNj-gh-Knj" id="6We-CY-hsq"/>
+                <outlet property="trackNameLabel" destination="25u-yb-Deg" id="vjy-cP-ECs"/>
+            </connections>
+        </viewController>
+        <popover id="Foo-98-gDz">
+            <connections>
+                <outlet property="contentViewController" destination="F6s-nB-T5l" id="PXs-Tx-JQR"/>
+            </connections>
+        </popover>
+        <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" detachesHiddenViews="YES" id="6Cr-t5-W01" userLabel="Outer View">
+            <rect key="frame" x="0.0" y="0.0" width="258" height="330"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ifk-iu-g9U" userLabel="Album Image">
+                    <rect key="frame" x="4" y="60" width="250" height="266"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="arP-x8-sPF"/>
+                        <constraint firstAttribute="height" constant="266" id="qfD-fz-5OU"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="Hnn-79-0R2"/>
+                </imageView>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tzS-ni-8KT">
+                    <rect key="frame" x="0.0" y="0.0" width="258" height="52"/>
+                    <subviews>
+                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNj-gh-Knj" userLabel="Artist Label">
+                            <rect key="frame" x="-2" y="30" width="262" height="17"/>
+                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Artist" id="U1I-qT-AsM">
+                                <font key="font" metaFont="systemThin" size="13"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25u-yb-Deg" userLabel="Track Label">
+                            <rect key="frame" x="-2" y="5" width="262" height="17"/>
+                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Track" id="v8m-mn-jtm">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <edgeInsets key="edgeInsets" left="0.0" right="0.0" top="5" bottom="5"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="GNj-gh-Knj" secondAttribute="trailing" id="TQ5-D8-azZ"/>
+                        <constraint firstItem="25u-yb-Deg" firstAttribute="trailing" secondItem="GNj-gh-Knj" secondAttribute="trailing" id="VQi-ox-5gs"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <edgeInsets key="edgeInsets" left="0.0" right="0.0" top="4" bottom="0.0"/>
+            <constraints>
+                <constraint firstItem="tzS-ni-8KT" firstAttribute="centerX" secondItem="6Cr-t5-W01" secondAttribute="centerX" id="A3c-cP-pTo"/>
+                <constraint firstItem="Ifk-iu-g9U" firstAttribute="leading" secondItem="6Cr-t5-W01" secondAttribute="leading" constant="4" id="HIr-jJ-RMw"/>
+                <constraint firstItem="Ifk-iu-g9U" firstAttribute="centerX" secondItem="6Cr-t5-W01" secondAttribute="centerX" id="Oj9-4Q-TPD"/>
+            </constraints>
+            <visibilityPriorities>
+                <integer value="1000"/>
+                <integer value="1000"/>
+            </visibilityPriorities>
+            <customSpacing>
+                <real value="3.4028234663852886e+38"/>
+                <real value="3.4028234663852886e+38"/>
+            </customSpacing>
+            <point key="canvasLocation" x="499" y="259"/>
+        </stackView>
+    </objects>
+</document>
