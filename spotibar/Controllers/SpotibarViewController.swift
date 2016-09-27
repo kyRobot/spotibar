@@ -89,5 +89,16 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
         currentTrack = nil
         displayedAlbum = nil
     }
-    
+
+
 }
+
+    // MARK: Actions
+
+extension SpotibarViewController {
+    @IBAction func quit(sender: NSButton) {
+        NSApplication.shared().terminate(sender)
+    }
+}
+    
+
