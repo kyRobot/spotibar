@@ -11,6 +11,9 @@
             <connections>
                 <outlet property="albumImg" destination="Ifk-iu-g9U" id="a12-Pk-d1w"/>
                 <outlet property="artistLabel" destination="GNj-gh-Knj" id="gzk-BH-k3a"/>
+                <outlet property="quitMenuItem" destination="UTY-Gm-2Ky" id="iBp-3g-gqB"/>
+                <outlet property="settingsButton" destination="zdi-uL-hx5" id="m4U-TN-dGO"/>
+                <outlet property="settingsMenu" destination="Fhg-PJ-GoU" id="kKC-Sl-nlM"/>
                 <outlet property="trackNameLabel" destination="25u-yb-Deg" id="dg7-tc-5uf"/>
                 <outlet property="view" destination="6Cr-t5-W01" id="Qi1-a5-RAD"/>
             </connections>
@@ -21,6 +24,9 @@
             <connections>
                 <outlet property="albumImg" destination="Ifk-iu-g9U" id="Dmc-sm-pmB"/>
                 <outlet property="artistLabel" destination="GNj-gh-Knj" id="6We-CY-hsq"/>
+                <outlet property="quitMenuItem" destination="UTY-Gm-2Ky" id="wQz-BJ-GHq"/>
+                <outlet property="settingsButton" destination="zdi-uL-hx5" id="0M8-VX-E1N"/>
+                <outlet property="settingsMenu" destination="Fhg-PJ-GoU" id="Nce-UD-Ljz"/>
                 <outlet property="trackNameLabel" destination="25u-yb-Deg" id="vjy-cP-ECs"/>
             </connections>
         </viewController>
@@ -45,9 +51,12 @@
                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="dots@2x" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="1sK-hX-Plk">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
+                                <connections>
+                                    <outlet property="menu" destination="Fhg-PJ-GoU" id="uwF-1z-gm8"/>
+                                </connections>
                             </buttonCell>
                             <connections>
-                                <action selector="quitWithSender:" target="-2" id="17z-dT-6O1"/>
+                                <outlet property="menu" destination="Fhg-PJ-GoU" id="qpK-NT-iEs"/>
                             </connections>
                         </button>
                     </subviews>
@@ -120,10 +129,21 @@
                 <real value="3.4028234663852886e+38"/>
                 <real value="3.4028234663852886e+38"/>
             </customSpacing>
+            <connections>
+                <outlet property="menu" destination="Fhg-PJ-GoU" id="Zoe-i6-1BP"/>
+            </connections>
             <point key="canvasLocation" x="499" y="258"/>
         </stackView>
+        <menu id="Fhg-PJ-GoU">
+            <items>
+                <menuItem title="Quit spotibar" id="UTY-Gm-2Ky">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="392" y="573"/>
+        </menu>
     </objects>
     <resources>
-        <image name="dots@2x" width="230.39999389648438" height="230.39999389648438"/>
+        <image name="dots@2x" width="102.40000152587891" height="102.40000152587891"/>
     </resources>
 </document>

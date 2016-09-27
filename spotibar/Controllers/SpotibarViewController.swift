@@ -13,6 +13,10 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
     @IBOutlet var trackNameLabel: NSTextField!
     @IBOutlet var artistLabel:  NSTextField!
     @IBOutlet var albumImg: NSImageView!
+    
+    @IBOutlet var settingsButton: NSButton!
+    @IBOutlet var settingsMenu: NSMenu!
+    @IBOutlet var quitMenuItem: NSMenuItem!
 
     var currentTrack: Track?
     var displayedAlbum: String?
@@ -20,11 +24,10 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        artistLabel.cell?.wraps = true
-//        artistLabel.cell?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-//        trackNameLabel.cell?.wraps = true
-//        trackNameLabel.cell?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         albumImg.imageScaling = NSImageScaling.scaleProportionallyUpOrDown
+        settingsButton.action = #selector(self.popupMenu(sender:))
+        quitMenuItem.action = #selector(self.quit(sender:))
+
     }
 
     func popoverWillShow(_ notification: Notification) {
@@ -43,6 +46,11 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
         self.currentTrack = track
         refreshView()
     }
+
+    @objc private func popupMenu(sender: NSButtonCell) {
+        settingsMenu.popUp(positioning: settingsMenu.item(at: 0), at: NSEvent.mouseLocation(), in: nil)
+    }
+
 
     fileprivate func refreshView() {
         // no track, or view not loaded yet. quick return
