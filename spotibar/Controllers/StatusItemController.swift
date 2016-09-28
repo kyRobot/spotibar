@@ -25,6 +25,8 @@ class StatusItemController: NSObject {
         switch track.state {
         case .playing:
             newButtonTitle(title: track.name)
+        case .advertising:
+            newButtonTitle(title: "Ad")
         default:
             newButtonTitle(title: nil)
         }

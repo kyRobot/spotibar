@@ -63,8 +63,7 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
         }
 
         // no track info, clean up
-        if track.state == SpotifyConstants.PlayerState.stopped ||
-            track.state == SpotifyConstants.PlayerState.paused {
+        if track.state != SpotifyConstants.PlayerState.playing {
             reset()
             return
         }

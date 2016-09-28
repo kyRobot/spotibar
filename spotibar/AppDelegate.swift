@@ -26,14 +26,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc fileprivate func spotifyPlaybackChanged(notification: Notification) {
+        print(notification.userInfo!)
         let payload = notification.userInfo!
         let playerState: SpotifyConstants.PlayerState? =
             SpotifyConstants.PlayerState(rawValue: payload[SpotifyConstants.NotificationKeys.State] as! String)
 
-        guard let state = playerState else {
+        guard let knownState = playerState else {
             return
-            // Error State i.e Player Error is Unknown. Notification Structure may have changed
+            // Error State i.e Player State is Unknown. Notification Structure may have changed
         }
+
+        let state = (knownState == .playing && adCheck(map: payload)) ? .advertising : knownState
 
         let track = Track(state: state)
         track.id = extract(key: SpotifyConstants.NotificationKeys.ID, map: payload)
@@ -45,7 +48,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     fileprivate func extract(key: String, map: [AnyHashable: Any]) -> String? {
-        return map[key] as! String?
+        guard let value = map[key] else {
+            return nil
+        }
+        return String(describing: value)
+    }
+
+    fileprivate func adCheck(map: [AnyHashable: Any]) -> Bool {
+        guard let trackNum = extract(key: SpotifyConstants.NotificationKeys.TrackNumber, map: map) else {
+            return false
+        }
+
+        return trackNum == "0"
     }
 
 

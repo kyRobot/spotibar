@@ -36,14 +36,14 @@
             </connections>
         </popover>
         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" detachesHiddenViews="YES" id="6Cr-t5-W01" userLabel="Outer View">
-            <rect key="frame" x="0.0" y="0.0" width="258" height="310"/>
+            <rect key="frame" x="0.0" y="0.0" width="250" height="310"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <stackView distribution="fill" orientation="vertical" alignment="trailing" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mCM-HK-4eG" userLabel="Top Button Bar">
-                    <rect key="frame" x="0.0" y="291" width="258" height="15"/>
+                    <rect key="frame" x="0.0" y="291" width="250" height="15"/>
                     <subviews>
                         <button translatesAutoresizingMaskIntoConstraints="NO" id="zdi-uL-hx5" userLabel="menu">
-                            <rect key="frame" x="239" y="0.0" width="15" height="15"/>
+                            <rect key="frame" x="231" y="0.0" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="IjC-N2-Ph9"/>
                                 <constraint firstAttribute="width" constant="15" id="iYk-84-bbF"/>
@@ -71,7 +71,7 @@
                     </customSpacing>
                 </stackView>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ifk-iu-g9U" userLabel="Album Image">
-                    <rect key="frame" x="4" y="41" width="250" height="250"/>
+                    <rect key="frame" x="0.0" y="41" width="250" height="250"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="6li-m3-21M"/>
                         <constraint firstAttribute="width" constant="250" id="7ea-QI-5ot"/>
@@ -79,10 +79,10 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="Hnn-79-0R2"/>
                 </imageView>
                 <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tzS-ni-8KT" userLabel="Meta Text">
-                    <rect key="frame" x="0.0" y="0.0" width="258" height="41"/>
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="41"/>
                     <subviews>
                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25u-yb-Deg" userLabel="Track Label">
-                            <rect key="frame" x="-2" y="19" width="262" height="17"/>
+                            <rect key="frame" x="-2" y="19" width="254" height="17"/>
                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" placeholderString="No Track" id="v8m-mn-jtm">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -90,7 +90,7 @@
                             </textFieldCell>
                         </textField>
                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNj-gh-Knj" userLabel="Artist Label">
-                            <rect key="frame" x="-2" y="5" width="262" height="14"/>
+                            <rect key="frame" x="-2" y="5" width="254" height="14"/>
                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" placeholderString="No Artist" id="U1I-qT-AsM">
                                 <font key="font" metaFont="systemThin" size="11"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -132,7 +132,7 @@
             <connections>
                 <outlet property="menu" destination="Fhg-PJ-GoU" id="Zoe-i6-1BP"/>
             </connections>
-            <point key="canvasLocation" x="499" y="258"/>
+            <point key="canvasLocation" x="371" y="262"/>
         </stackView>
         <menu id="Fhg-PJ-GoU">
             <items>

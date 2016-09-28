@@ -15,12 +15,14 @@ struct SpotifyConstants {
         static let Album = "Album"
         static let Name = "Name"
         static let Artist = "Album Artist"
+        static let TrackNumber = "Track Number"
     }
 
     enum PlayerState : String {
         case playing = "Playing"
         case paused = "Paused"
         case stopped = "Stopped"
+        case advertising = "Ads"
     }
 
     struct WebAPI {
