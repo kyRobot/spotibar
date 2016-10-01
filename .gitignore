@@ -1,6 +1,7 @@
 # custom ignores
 notification_examples.txt
 releases/
+icons.txt
 
 
 # Created by https://www.gitignore.io/api/macos,xcode
