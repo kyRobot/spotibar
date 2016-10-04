@@ -26,7 +26,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc fileprivate func spotifyPlaybackChanged(notification: Notification) {
-        print(notification.userInfo!)
         let payload = notification.userInfo!
         let playerState: SpotifyConstants.PlayerState? =
             SpotifyConstants.PlayerState(rawValue: payload[SpotifyConstants.NotificationKeys.State] as! String)
