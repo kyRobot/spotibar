@@ -6,20 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "no_artwork.png",
+      "filename" : "no_art@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x"
-    },
-    {
-      "idiom" : "mac",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "mac",
-      "scale" : "2x"
     }
   ],
   "info" : {
