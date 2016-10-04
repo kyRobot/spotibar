@@ -19,7 +19,7 @@ open class Track : NSObject {
 
         guard let trackID = self.id,
                   let image = try? self.fetchAlbumArt(trackID: trackID) else {
-            return NSImage(named: "no_art@2x")
+            return #imageLiteral(resourceName: "no_art@2x")
         }
 
         return image

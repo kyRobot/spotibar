@@ -18,12 +18,15 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
     @IBOutlet var settingsMenu: NSMenu!
     @IBOutlet var quitMenuItem: NSMenuItem!
 
+    let defaultArt = #imageLiteral(resourceName: "no_art@2x")
+
     var currentTrack: Track?
     var displayedAlbum: String?
     var getArt: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        albumImg.image = defaultArt
         albumImg.imageScaling = NSImageScaling.scaleProportionallyUpOrDown
         settingsButton.action = #selector(self.popupMenu(sender:))
         quitMenuItem.action = #selector(self.quit(sender:))
@@ -89,7 +92,7 @@ class SpotibarViewController: NSViewController, NSPopoverDelegate {
     }
 
     fileprivate func reset() {
-        albumImg.image = nil
+        albumImg.image = defaultArt
         artistLabel.stringValue = ""
         trackNameLabel.stringValue = ""
         trackNameLabel.toolTip = nil
